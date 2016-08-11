@@ -14,3 +14,9 @@ Create Spring Cloud Services
 
     cf cs p-service-registry standard service-registry
     cf cs p-circuit-breaker-dashboard standard circuit-breaker-dashboard
+
+Verify that this links work
+
+    fortunes.local.pcfdev.io/message
+    fortunes.local.pcfdev.io/random
+    client.local.pcfdev.io/random
