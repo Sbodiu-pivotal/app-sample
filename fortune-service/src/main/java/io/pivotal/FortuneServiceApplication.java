@@ -45,23 +45,19 @@ class FortuneController {
     @Autowired
     FortuneRepository repository;
 
-    @RequestMapping("/fortunes")
-    public Iterable<Fortune> fortunes() {
-        return repository.findAll();
-    }
-
     @RequestMapping("/random")
     public Fortune randomFortune() {
-        List<Fortune> randomFortunes = repository.randomFortunes(new PageRequest(0, 1));
-        return randomFortunes.get(0);
+//        List<Fortune> randomFortunes = repository.randomFortunes(new PageRequest(0, 1));
+//        return randomFortunes.get(0);
+        return null;
     }
 }
 
 @RepositoryRestResource
 interface FortuneRepository extends JpaRepository<Fortune, Long> {
 
-    @org.springframework.data.jpa.repository.Query("select fortune from Fortune fortune order by RAND()")
-    public List<Fortune> randomFortunes(Pageable pageable);
+//    @org.springframework.data.jpa.repository.Query("select fortune from Fortune fortune order by RAND()")
+//    public List<Fortune> randomFortunes(Pageable pageable);
 }
 
 @Entity

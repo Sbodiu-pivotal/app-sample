@@ -4,7 +4,11 @@ Sample Application based on https://github.com/spring-cloud-samples/fortune-tell
 How to push Application sample to PCFdev
 
     cf cs p-mysql 512mb fortunes-db
-    cf cs p-config-server standard config-server -c '{"git": { "uri": "https://github.com/sergiubodiu/app-sample", "searchPaths": "configuration" } }'
+    cf create-service -c '{ "git": { "uri": "https://github.com/sergiubodiu/fortune-app-config", "label": "master"  } }' p-config-server standard config-server
+
+Check if the config-server is up
+
+    watch -n 5 cf service config-server
 
 Create Spring Cloud Services
 
